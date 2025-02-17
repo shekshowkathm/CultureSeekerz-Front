@@ -1,0 +1,51 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "dataGroups": [
+    {
+      "name":"subjectApis",
+      "urls":[
+        "https://admin.cultureseekerz.com/activeclass/getactiveclass/*",
+        "https://admin.cultureseekerz.com/activeclass/getbyactivity/*/*",
+        "https://admin.cultureseekerz.com/activeclass/search",
+        "https://admin.cultureseekerz.com/activeclass/getagegroup/*/*",
+        "https://admin.cultureseekerz.com/teacher/gettrialclassteachers/*",
+        "https://admin.cultureseekerz.com/activeclass/getActiveClass/*/*"
+      ],
+      "cacheConfig": {
+        "maxAge": "2h",
+        "timeout": "3m",
+        "cacheOpaqueResponses": false
+      },
+      "cacheQueryOptions": {
+        "ignoreSearch": false
+      }
+    }
+  ],
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/media/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ]
+      }
+    }
+  ]
+}
